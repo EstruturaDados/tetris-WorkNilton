@@ -1,17 +1,11 @@
 #include <stdio.h>
 }
-
-
 if (opcao == 0) {
 printf("Encerrando o programa.\n");
 break;
 }
-
-
 Peca temporaria;
 int sucesso;
-
-
 switch (opcao) {
 case 1: /* Jogar peça: remove da frente da fila (dequeue) */
 sucesso = desenfileirar(&fila, &temporaria);
@@ -21,8 +15,6 @@ printf("\nVocê jogou a peça [%c %d].\n", temporaria.nome, temporaria.id);
 printf("\nFila vazia — não há peça para jogar.\n");
 }
 break;
-
-
 case 2: /* Reservar peça: move da frente da fila para o topo da pilha */
 /* primeiro verifica se há peça na fila */
 if (fila.quantidade == 0) {
@@ -40,8 +32,6 @@ enfileirar(&fila, temporaria);
 }
 }
 break;
-
-
 case 3: /* Usar peça reservada: remove do topo da pilha (pop) */
 sucesso = desempilhar(&pilha, &temporaria);
 if (sucesso) {
@@ -50,14 +40,10 @@ printf("\nVocê usou a peça reservada [%c %d].\n", temporaria.nome, temporaria.
 printf("\nPilha vazia — não há peça reservada para usar.\n");
 }
 break;
-
-
 default:
 printf("\nOpção inválida. Escolha 0, 1, 2 ou 3.\n");
 break;
 }
-
-
 /* Após cada ação, tentamos garantir que a fila esteja cheia.
 * Se a fila não estiver cheia (por exemplo, porque removemos da frente),
 * geramos e enfileiramos uma peça nova. Se a fila já estiver cheia (por
@@ -76,13 +62,9 @@ if (enfileirar(&fila, nova)) {
 printf("Uma nova peça [%c %d] foi gerada e adicionada ao final da fila.\n", nova.nome, nova.id);
 }
 }
-
-
 /* Pequena pausa visual antes de atualizar a tela (opcional) */
 /* fflush(stdout); */
 }
-
-
 return 0;
 }
 
